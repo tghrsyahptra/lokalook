@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/navigation_home">
+
+    <!-- Home Fragment -->
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.lokalook.lokalook.ui.fragments.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home">
+        <!-- Action untuk berpindah ke BudgetingFragment -->
+        <action
+            android:id="@+id/action_navigation_home_to_navigation_budgeting"
+            app:destination="@id/navigation_budgeting" />
+    </fragment>
+
+    <!-- Budgeting Fragment -->
+    <fragment
+        android:id="@+id/navigation_budgeting"
+        android:name="com.lokalook.lokalook.ui.fragments.BudgetingFragment"
+        android:label="fragment_budgeting"
+        tools:layout="@layout/fragment_news" />
+
+    <!-- Camera Fragment -->
+    <fragment
+        android:id="@+id/navigation_camera"
+        android:name="com.lokalook.lokalook.ui.fragments.CameraFragment"
+        android:label="fragment_camera"
+        tools:layout="@layout/fragment_camera" />
+
+    <!-- Trend Fragment -->
+    <fragment
+        android:id="@+id/navigation_trend"
+        android:name="com.lokalook.lokalook.ui.fragments.TrendFragment"
+        android:label="fragment_trend"
+        tools:layout="@layout/fragment_trend" />
+
+    <!-- Profile Fragment -->
+    <fragment
+        android:id="@+id/navigation_profile"
+        android:name="com.lokalook.lokalook.ui.fragments.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
+</navigation>

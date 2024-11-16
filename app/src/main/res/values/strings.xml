@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Lokalook</string>
+    <string name="home">Home</string>
+    <string name="news">News</string>
+    <string name="camera">Camera</string>
+    <string name="trend">Trend</string>
+    <string name="user">User</string>
+    <string name="homepage">Kemana Kamu akan Pergi\nHari Ini</string>
+
+</resources>

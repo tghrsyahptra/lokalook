@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_home"
+        android:icon="@drawable/ic_home"
+        android:title="@string/title_home" />
+
+    <item
+        android:id="@+id/navigation_budgeting"
+        android:icon="@drawable/ic_upcoming"
+        android:title="@string/budgeting" />
+
+    <item
+        android:id="@+id/navigation_camera"
+        android:icon="@drawable/baseline_photo_camera_24"
+        android:title="@string/camera" />
+
+    <item
+        android:id="@+id/navigation_trend"
+        android:icon="@drawable/baseline_stacked_line_chart_24"
+        android:title="@string/trend" />
+
+    <item
+        android:id="@+id/navigation_user"
+        android:icon="@drawable/baseline_account_circle_24"
+        android:title="@string/user" />
+
+</menu>

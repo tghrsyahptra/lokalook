@@ -1,9 +1,23 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Base.Theme.Lokalook" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+<resources>
+    <!-- Tema aplikasi saat dalam mode gelap -->
+    <!-- Base application theme untuk Light Mode -->
+    <style name="Base.Theme.Lokalook.Light" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="android:windowBackground">@color/background_light</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:statusBarColor">@color/primary</item>
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorSecondary">@color/secondary</item>
+        <item name="colorOnSecondary">@color/white</item>
+        <item name="android:textColor">@color/text_color</item>
+
     </style>
 
-    <style name="Theme.Lokalook" parent="Base.Theme.Lokalook" />
+    <style name="Theme.Lokalook" parent="Base.Theme.Lokalook.Light" />
+
+    <style name="Theme.App.Starting" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/background_light</item>
+        <item name="postSplashScreenTheme">@style/Theme.Lokalook</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_dicoding</item>
+    </style>
 </resources>

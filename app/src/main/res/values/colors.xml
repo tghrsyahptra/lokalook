@@ -37,5 +37,6 @@
     <color name="green">#35D52A</color>
     <color name="yellow">#FFEB3B</color>
     <!-- Add other colors as needed -->
+    <color name="sec_white">#F0F3F8"</color>
 
 </resources>

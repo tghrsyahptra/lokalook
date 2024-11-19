@@ -26,7 +26,6 @@
     <!-- Warna untuk Tema Gelap -->
     <color name="white_night">#121212</color> <!-- Warna latar belakang gelap -->
     <color name="light_grey_night">#1F1F1F</color> <!-- Garis pemisah -->
-    <color name="primary_night">#BB86FC</color> <!-- Warna utama untuk gelap -->
     <color name="onfab_night">#000000</color> <!-- Warna untuk ikon FAB -->
     <color name="dark_grey_night">#FFFFFF</color> <!-- Warna teks terang -->
 
@@ -36,7 +35,6 @@
     <color name="light_blue">#A0E4FB</color>
     <color name="green">#35D52A</color>
     <color name="yellow">#FFEB3B</color>
-    <!-- Add other colors as needed -->
-    <color name="sec_white">#F0F3F8"</color>
+    <color name="sec_white">#F0F3F8</color>
 
 </resources>

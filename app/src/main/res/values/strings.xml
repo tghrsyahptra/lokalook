@@ -42,4 +42,7 @@
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
     <string name="action_sign_up">Daftar</string>
+    <string name="otp">Masukkan code OTP yang sudah dikirimakan ke nomor +62174994484679</string>
+    <string name="sendcode">Kirim Ulang Kode?</string>
+    <string name="confirm">Konfirmasi</string>
 </resources>

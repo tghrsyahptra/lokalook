@@ -38,7 +38,9 @@ class LoginActivity : AppCompatActivity() {
             val loginState = it ?: return@Observer
 
             // disable login button unless both username / password is valid
-            login.isEnabled = loginState.isDataValid
+            if (login != null) {
+                login.isEnabled = loginState.isDataValid
+            }
 
             if (loginState.usernameError != null) {
                 username.error = getString(loginState.usernameError)
@@ -90,9 +92,11 @@ class LoginActivity : AppCompatActivity() {
                 false
             }
 
-            login.setOnClickListener {
-                loading.visibility = View.VISIBLE
-                loginViewModel.login(username.text.toString(), password.text.toString())
+            if (login != null) {
+                login.setOnClickListener {
+                    loading.visibility = View.VISIBLE
+                    loginViewModel.login(username.text.toString(), password.text.toString())
+                }
             }
         }
     }

@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('nama_wisata');
             $table->string('alamat');
             $table->string('deskripsi');
-            $table->string('image');
+            $table->string('image')->nullable();
             $table->string('no_wa');
             $table->string('jam_operasional');
             $table->enum('kategori', ['Low', 'normal', 'high']);

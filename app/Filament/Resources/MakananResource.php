@@ -18,6 +18,10 @@ class MakananResource extends Resource
     protected static ?string $model = Makanan::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationLabel = 'Data Makanan Lokalook';
+    protected static ?string $modelLabel = 'Data Makanan Lokalook';
+    protected static ?string $pluralModelLabel = 'Data Makanan Lokalook';
+    protected static ?string $slug = 'makanan';
 
     public static function form(Form $form): Form
     {
@@ -33,8 +37,7 @@ class MakananResource extends Resource
                     ->required()
                     ->maxLength(255),
                 Forms\Components\FileUpload::make('image')
-                    ->image()
-                    ->required(),
+                    ->image(),
                 Forms\Components\TextInput::make('no_wa')
                     ->required()
                     ->maxLength(255),
@@ -78,6 +81,7 @@ class MakananResource extends Resource
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\ViewAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

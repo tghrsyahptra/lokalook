@@ -10,5 +10,9 @@ class pengguna extends Model
         'nama_lengkap',
         'email',
         'alamat',
+        'password',
+        'hasil_personalisasi',
+        'username',
+        'image_pp',
     ];
 }

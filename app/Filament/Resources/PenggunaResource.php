@@ -18,6 +18,10 @@ class PenggunaResource extends Resource
     protected static ?string $model = Pengguna::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationLabel = 'Data Pengguna Lokalook';
+    protected static ?string $modelLabel = 'Data Pengguna Lokalook';
+    protected static ?string $pluralModelLabel = 'Data Pengguna Lokalook';
+    protected static ?string $slug = 'pengguna';
 
     public static function form(Form $form): Form
     {
@@ -44,8 +48,7 @@ class PenggunaResource extends Resource
                     ->required()
                     ->maxLength(255),
                 Forms\Components\FileUpload::make('image_pp')
-                    ->image()
-                    ->required(),
+                    ->image(),
             ]);
     }
 

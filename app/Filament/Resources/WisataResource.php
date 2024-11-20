@@ -18,6 +18,11 @@ class WisataResource extends Resource
     protected static ?string $model = Wisata::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationLabel = 'Data Wisata Lokalook';
+    protected static ?string $modelLabel = 'Data Wisata Lokalook';
+    protected static ?string $pluralModelLabel = 'Data Wisata Lokalook';
+    protected static ?string $slug = 'wisata';
+
 
     public static function form(Form $form): Form
     {
@@ -33,16 +38,21 @@ class WisataResource extends Resource
                     ->required()
                     ->maxLength(255),
                 Forms\Components\FileUpload::make('image')
-                    ->image()
-                    ->required(),
+                    ->image(),
                 Forms\Components\TextInput::make('no_wa')
                     ->required()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('jam_operasional')
                     ->required()
                     ->maxLength(255),
-                Forms\Components\TextInput::make('kategori')
-                    ->required(),
+                    Forms\Components\Select::make('kategori')
+                    ->label('Kategori')
+                    ->placeholder('Pilih Kategori')
+                    ->options([
+                        'Low' => 'Low',
+                        'normal' => 'normal',
+                        'high' => 'high',
+                    ])->required(),
                 Forms\Components\TextInput::make('harga')
                     ->required()
                     ->maxLength(255),
@@ -81,6 +91,7 @@ class WisataResource extends Resource
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\ViewAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

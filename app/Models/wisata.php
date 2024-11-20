@@ -12,7 +12,8 @@ class wisata extends Model
         'deskripsi',
         'image',
         'no_wa',
-        'jam_buka',
+        'jam_operasional',
         'kategori',
+        'harga',
     ];
 }

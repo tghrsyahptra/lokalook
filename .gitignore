@@ -1,5 +1,6 @@
 /.phpunit.cache
 /node_modules
+/lokalooks-api
 /public/build
 /public/hot
 /public/storage

@@ -1,6 +1,5 @@
 const Hapi = require('@hapi/hapi');
-const config = require('./config');
-const mysql = require('mysql2/promise');
+const db = require('./config');
 
 const init = async () => {
     const server = Hapi.server({
@@ -8,7 +7,7 @@ const init = async () => {
         host: 'localhost'
     });
 
-    server.app.db = await mysql.createConnection(config.db);
+    server.app.db = db;
 
     server.route(require('./routes/authRoutes'));
     server.route(require('./routes/wisataRoutes'));

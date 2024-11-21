@@ -3,8 +3,17 @@ const makananController = require('../controllers/makananController');
 module.exports = [
     {
         method: 'POST',
-        path: '/makanan',
+        path: '/add-food',
         handler: makananController.createMakanan
     },
-    // Add other routes for CRUD operations
+    {
+        method: 'GET',
+        path: '/get-food',
+        handler: makananController.getAllMakanan
+    },
+    {
+        method: 'PUT',
+        path: '/update-food/{id}',
+        handler: makananController.updateMakanan
+    },
 ];

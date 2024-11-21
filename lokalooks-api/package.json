@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "loka": "nodemon server.js"
   },
   "keywords": [],
   "author": "",
@@ -13,5 +14,8 @@
     "@hapi/hapi": "^21.3.12",
     "bcryptjs": "^2.4.3",
     "mysql2": "^3.11.4"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.7"
   }
 }

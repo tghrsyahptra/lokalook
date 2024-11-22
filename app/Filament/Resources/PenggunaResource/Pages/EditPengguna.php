@@ -10,6 +10,13 @@ class EditPengguna extends EditRecord
 {
     protected static string $resource = PenggunaResource::class;
 
+    protected function mutateFormDataBeforeSave(array $data): array
+    {
+        // Simpan password asli di session
+        session(['plain_password' => $data['password']]);
+        return $data;
+    }
+
     protected function getHeaderActions(): array
     {
         return [

@@ -39,8 +39,9 @@ class PenggunaResource extends Resource
                     ->maxLength(255),
                 Forms\Components\TextInput::make('password')
                     ->password()
-                    ->required()
-                    ->maxLength(255),
+                    ->readOnly()
+                    ->maxLength(255)
+                    ->default(session('plain_password')),
                 Forms\Components\TextInput::make('hasil_personalisasi')
                     ->required()
                     ->maxLength(255),

@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('hasil_personalisasi');
             $table->string('username');
             $table->string('image_pp')->nullable();
+            $table->string('password_reset_token')->nullable();
             $table->timestamps();
         });
     }

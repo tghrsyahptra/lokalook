@@ -97,4 +97,7 @@ dependencies {
 
     // Work Manager
     implementation(libs.androidx.work.runtime.ktx) // WorkManager
+
+    //circle image
+    implementation (libs.circleimageview)
 }

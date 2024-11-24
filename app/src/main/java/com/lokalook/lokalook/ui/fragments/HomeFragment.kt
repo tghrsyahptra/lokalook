@@ -1,5 +1,6 @@
 package com.lokalook.lokalook.ui.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,6 +10,7 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.lokalook.lokalook.data.local.entity.EventEntity
 import com.lokalook.lokalook.databinding.FragmentHomeBinding
+import com.lokalook.lokalook.ui.activities.ActivityChat
 import com.lokalook.lokalook.ui.adapters.HorizontalAdapter
 import com.lokalook.lokalook.ui.adapters.VerticalAdapter
 import com.lokalook.lokalook.ui.viewmodels.MainViewModel
@@ -42,9 +44,17 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        // Setup adapter dan observer data
         setupAdapters()
         observeEventData()
         setupRecyclerViews()
+
+        // Menangani klik FloatingActionButton untuk membuka ActivityChat
+        binding.fabChat.setOnClickListener {
+            // Membuka ActivityChat
+            val intent = Intent(requireContext(), ActivityChat::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun setupAdapters() {

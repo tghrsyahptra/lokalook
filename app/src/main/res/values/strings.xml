@@ -22,7 +22,7 @@
     <!--    new new-->
     <string name="app_name">Lokalook</string>
     <string name="home">Home</string>
-    <string name="budgeting">Budgeting</string>
+    <string name="budgeting">Smart Budgeting</string>
     <string name="camera">Camera</string>
     <string name="trend">Trend</string>
     <string name="user">User</string>
@@ -31,5 +31,35 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="popular_place">Tempat Populer</string>
     <string name="maybe_love">Tempat yang Mungkin Kamu Suka</string>
+    <!-- new budgeting-->
+    <string name="rencana_destinasi">Buat Rencana Destinasimu</string>
+    <string name="judul_destinasi">Smart Budgeting</string>
+    <string name="txt_btn">Lanjutkan</string>
+    <string name="jml_orang">Jumlah Orang</string>
+    <string name="budget">Budget</string>
+    <string name="wisata">Wisata</string>
+    <string name="makanan">Makanan</string>
+    <string name="perjalanan">Tujuan Perjalanan</string>
     <string name="destinasi">Masukkan destinasi wisata</string>
+    <string name="back_button">Tombol Kembali</string>
+    <string name="notification_icon">Ikon Notifikasi</string>
+    <string name="appbar_user">Akun Pengguna</string>
+    <string name="ubah">Ubah Kata Sandi</string>
+    <string name="namatempat">Curug Telu</string>
+    <string name="hargaa">15K</string>
+    <string name="hambar">Hasil Pencarian Gambar</string>
+    <string name="analyze">Scan Gambar</string>
+    <string name="galery">Pilih Gambar dari Galeri</string>
+    <string name="back">Back</string>
+    <string name="ailokalook">Lokalook AI</string>
+    <string name="startai">Hai Lokalook apakah kau bisa membantuku?</string>
+    <string name="balasai">Tentu, apa yang ingin kau tanyakan</string>
+    <string name="ketik">Tulis Pesan</string>
+    <string name="send">Send</string>
+    <string name="mic">Mic</string>
+    <string name="notif">Notifikasi</string>
+    <string name="hariini">Hari Ini</string>
+    <string name="kemarin">Kemarin</string>
+    <string name="judul">Update System</string>
+    <string name="waktu">08.00</string>
 </resources>

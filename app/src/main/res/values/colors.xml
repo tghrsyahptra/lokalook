@@ -38,4 +38,7 @@
     <color name="yellow">#FFEB3B</color>
     <!-- Add other colors as needed -->
 
+    <color name="light_green">#A8F5C8</color>
+
+
 </resources>

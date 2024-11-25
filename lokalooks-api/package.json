@@ -11,6 +11,7 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "@google-cloud/storage": "^7.14.0",
     "@hapi/hapi": "^21.3.12",
     "bcryptjs": "^2.4.3",
     "dotenv": "^16.4.5",

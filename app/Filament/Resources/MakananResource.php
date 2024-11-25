@@ -37,7 +37,13 @@ class MakananResource extends Resource
                     ->required()
                     ->maxLength(255),
                 Forms\Components\FileUpload::make('image')
-                    ->image(),
+                    ->image()
+                    ->disk('public')
+                    ->directory('foto_makanan')
+                    ->openable()
+                    ->image()
+                    ->minSize(100)
+                    ->maxSize(1024),
                 Forms\Components\TextInput::make('no_wa')
                     ->required()
                     ->maxLength(255),
@@ -60,7 +66,8 @@ class MakananResource extends Resource
                     ->searchable(),
                 Tables\Columns\TextColumn::make('deskripsi')
                     ->searchable(),
-                Tables\Columns\ImageColumn::make('image'),
+                Tables\Columns\ImageColumn::make('image')
+                    ->disk('public'),
                 Tables\Columns\TextColumn::make('no_wa')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('jam_operasional')

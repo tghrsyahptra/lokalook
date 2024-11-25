@@ -49,7 +49,14 @@ class PenggunaResource extends Resource
                     ->required()
                     ->maxLength(255),
                 Forms\Components\FileUpload::make('image_pp')
-                    ->image(),
+                    ->image()
+                    ->disk('public')
+                    ->directory('foto_pp')
+                    ->openable()
+                    ->image()
+                    ->minSize(10)
+                    ->maxSize(1024)
+                    ->acceptedFileTypes(['image/png', 'image/jpg', 'image/jpeg']),
             ]);
     }
 
@@ -67,7 +74,8 @@ class PenggunaResource extends Resource
                     ->searchable(),
                 Tables\Columns\TextColumn::make('username')
                     ->searchable(),
-                Tables\Columns\ImageColumn::make('image_pp'),
+                Tables\Columns\ImageColumn::make('image_pp')
+                ->disk('public'),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()

@@ -27,6 +27,7 @@ class BackendPanelProvider extends PanelProvider
             ->id('backend')
             ->path('backend')
             ->login()
+            ->spa()
             ->colors([
                 'primary' => Color::Amber,
             ])

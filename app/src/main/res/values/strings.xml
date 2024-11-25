@@ -16,8 +16,6 @@
     <string name="finished_events">Finished Events</string>
     <string name="organized_by">Organized by: %1$s</string>
     <string name="remaining_quota">Remaining quota: %1$s</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <!--    <string name="hello_blank_fragment">Hello blank fragment</string>-->
 
     <!--    new new-->
     <string name="app_name">Lokalook</string>

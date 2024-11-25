@@ -1,0 +1,760 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/nested_scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/bg_soft"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/bg_field_dark">
+
+                    <ImageView
+                        android:id="@+id/image"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:scaleType="centerCrop"
+                        android:visibility="visible"
+                        app:layout_constraintDimensionRatio="H,4:3"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <View
+                        android:id="@+id/lyt_image"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:background="@drawable/button_overlay"
+                        android:clickable="true"
+                        android:focusable="true"
+                        app:layout_constraintDimensionRatio="H,4:3"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <LinearLayout
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="@dimen/spacing_18"
+                    android:paddingVertical="@dimen/spacing_8">
+
+                    <ImageButton
+                        android:id="@+id/btn_back"
+                        android:layout_width="@dimen/spacing_36"
+                        android:layout_height="@dimen/spacing_36"
+                        android:background="@drawable/button_overlay_dark"
+                        app:srcCompat="@drawable/ic_chevron_left"
+                        app:tint="@color/white" />
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1" />
+
+                    <ImageButton
+                        android:id="@+id/btn_saved"
+                        android:layout_width="@dimen/spacing_36"
+                        android:layout_height="@dimen/spacing_36"
+                        android:background="@drawable/button_overlay_dark"
+                        app:srcCompat="@drawable/ic_bookmark_border"
+                        app:tint="@color/white" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="@dimen/spacing_18"
+                    android:paddingVertical="@dimen/spacing_14">
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/button_overlay_dark"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:paddingHorizontal="@dimen/spacing_10"
+                        android:paddingVertical="@dimen/spacing_4">
+
+                        <TextView
+                            android:id="@+id/images_count"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="6"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/txt_medium"
+                            app:fontFamily="sans-serif-medium" />
+
+                        <View
+                            android:layout_width="@dimen/spacing_8"
+                            android:layout_height="0dp" />
+
+                        <ImageView
+                            android:layout_width="@dimen/spacing_20"
+                            android:layout_height="@dimen/spacing_20"
+                            app:srcCompat="@drawable/ic_burst_mode"
+                            app:tint="@color/white" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_10"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingHorizontal="@dimen/spacing_16"
+                android:paddingVertical="@dimen/spacing_14">
+
+                <TextView
+                    android:id="@+id/type"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/badge_overlay"
+                    android:paddingHorizontal="@dimen/spacing_4"
+                    android:paddingBottom="@dimen/spacing_2"
+                    android:text="Hotel"
+                    android:textColor="@color/primary"
+                    android:textSize="@dimen/txt_small"
+                    app:fontFamily="sans-serif-medium" />
+
+                <View
+                    android:layout_width="@dimen/spacing_8"
+                    android:layout_height="0dp" />
+
+                <LinearLayout
+                    android:id="@+id/lyt_open"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/open_or_close"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="open"
+                        android:textColor="@color/ic_soft"
+                        android:textSize="@dimen/txt_xsmall" />
+
+                    <View
+                        android:layout_width="@dimen/spacing_4"
+                        android:layout_height="1dp"
+                        android:layout_marginHorizontal="@dimen/spacing_4"
+                        android:layout_marginTop="1dp"
+                        android:background="@color/ic_soft" />
+
+                    <TextView
+                        android:id="@+id/closed_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="-"
+                        android:textColor="@color/ic_soft"
+                        android:textSize="@dimen/txt_xsmall" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/star_hotel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:minHeight="@dimen/spacing_18"
+                    android:orientation="horizontal" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" />
+
+                <TextView
+                    android:id="@+id/category"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/spacing_2"
+                    android:text="Luxury"
+                    android:textColor="@color/primary"
+                    android:textSize="@dimen/txt_small"
+                    app:fontFamily="sans-serif-medium" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-medium"
+                android:paddingHorizontal="@dimen/spacing_20"
+                android:text="Title here"
+                android:textColor="@color/tx_dark"
+                android:textSize="18sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingHorizontal="@dimen/spacing_18"
+                android:paddingVertical="@dimen/spacing_9">
+
+                <ImageView
+                    android:layout_width="@dimen/spacing_12"
+                    android:layout_height="@dimen/spacing_12"
+                    app:srcCompat="@drawable/ic_location_on"
+                    app:tint="@color/ic_soft" />
+
+                <View
+                    android:layout_width="@dimen/spacing_3"
+                    android:layout_height="0dp" />
+
+                <TextView
+                    android:id="@+id/address"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/spacing_4"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:paddingBottom="1dp"
+                    android:text="Yogyakarta, ID"
+                    android:textColor="@color/ic_soft"
+                    android:textSize="@dimen/txt_small" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_20"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingHorizontal="@dimen/spacing_18">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageButton
+                        android:id="@+id/action_hour"
+                        android:layout_width="@dimen/spacing_44"
+                        android:layout_height="@dimen/spacing_44"
+                        android:background="@drawable/button_white"
+                        android:onClick="onTopMenuClicked"
+                        app:srcCompat="@drawable/ic_access_time"
+                        app:tint="@color/primary" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_8"
+                        android:text="@string/top_button_hour"
+                        android:textColor="@color/tx_dark"
+                        android:textSize="@dimen/txt_xsmall"
+                        app:fontFamily="sans-serif-medium" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageButton
+                        android:id="@+id/action_phone"
+                        android:layout_width="@dimen/spacing_44"
+                        android:layout_height="@dimen/spacing_44"
+                        android:background="@drawable/button_white"
+                        android:onClick="onTopMenuClicked"
+                        app:srcCompat="@drawable/ic_local_phone"
+                        app:tint="@color/primary" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_8"
+                        android:text="@string/top_button_phone"
+                        android:textColor="@color/tx_dark"
+                        android:textSize="@dimen/txt_xsmall"
+                        app:fontFamily="sans-serif-medium" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageButton
+                        android:id="@+id/action_reviews"
+                        android:layout_width="@dimen/spacing_44"
+                        android:layout_height="@dimen/spacing_44"
+                        android:background="@drawable/button_white"
+                        android:onClick="onTopMenuClicked"
+                        app:srcCompat="@drawable/ic_rate_review"
+                        app:tint="@color/primary" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_8"
+                        android:text="@string/top_button_reviews"
+                        android:textColor="@color/tx_dark"
+                        android:textSize="@dimen/txt_xsmall"
+                        app:fontFamily="sans-serif-medium" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageButton
+                        android:id="@+id/action_navigate"
+                        android:layout_width="@dimen/spacing_44"
+                        android:layout_height="@dimen/spacing_44"
+                        android:background="@drawable/button_white"
+                        android:onClick="onTopMenuClicked"
+                        app:srcCompat="@drawable/ic_near_me"
+                        app:tint="@color/primary" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_8"
+                        android:text="@string/top_button_navigate"
+                        android:textColor="@color/tx_dark"
+                        android:textSize="@dimen/txt_xsmall"
+                        app:fontFamily="sans-serif-medium" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageButton
+                        android:id="@+id/action_share"
+                        android:layout_width="@dimen/spacing_44"
+                        android:layout_height="@dimen/spacing_44"
+                        android:background="@drawable/button_white"
+                        android:onClick="onTopMenuClicked"
+                        app:srcCompat="@drawable/ic_share"
+                        app:tint="@color/primary" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_8"
+                        android:text="@string/top_button_share"
+                        android:textColor="@color/tx_dark"
+                        android:textSize="@dimen/txt_xsmall"
+                        app:fontFamily="sans-serif-medium" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/spacing_24"
+                android:orientation="vertical">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginHorizontal="@dimen/spacing_20"
+                    android:background="@color/bg_field" />
+
+                <include layout="@layout/include_banner_ad" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/excerpt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="@dimen/spacing_10"
+                android:text="Excerpt here"
+                android:textColor="@color/ic_dark"
+                android:textSize="@dimen/txt_small" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginHorizontal="@dimen/spacing_20"
+                android:layout_marginVertical="@dimen/spacing_24"
+                android:background="@color/bg_field" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/lyt_images"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/button_overlay"
+                android:clickable="true"
+                android:focusable="true"
+                android:paddingHorizontal="@dimen/spacing_20">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    app:cardBackgroundColor="@color/bg_soft"
+                    app:cardCornerRadius="@dimen/spacing_6"
+                    app:cardElevation="0dp"
+                    app:layout_constraintDimensionRatio="H,4:1"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:id="@+id/images_1"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:scaleType="centerCrop" />
+
+                        <View
+                            android:layout_width="@dimen/spacing_4"
+                            android:layout_height="0dp" />
+
+                        <ImageView
+                            android:id="@+id/images_2"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:scaleType="centerCrop" />
+
+                        <View
+                            android:layout_width="@dimen/spacing_4"
+                            android:layout_height="0dp" />
+
+                        <ImageView
+                            android:id="@+id/images_3"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:scaleType="centerCrop" />
+
+                        <View
+                            android:layout_width="@dimen/spacing_4"
+                            android:layout_height="0dp" />
+
+                        <RelativeLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1">
+
+                            <ImageView
+                                android:id="@+id/images_4"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:scaleType="centerCrop" />
+
+                            <TextView
+                                android:id="@+id/more_images"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@drawable/button_overlay_dark"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:gravity="center"
+                                android:text="20 \nmore"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/txt_medium"
+                                android:textStyle="bold" />
+
+                        </RelativeLayout>
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginHorizontal="@dimen/spacing_20"
+                android:layout_marginVertical="@dimen/spacing_24"
+                android:background="@color/bg_field" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-medium"
+                android:paddingHorizontal="@dimen/spacing_20"
+                android:text="@string/section_description"
+                android:textColor="@color/tx_dark"
+                android:textSize="@dimen/txt_mlarge" />
+
+            <RelativeLayout
+                android:id="@+id/lyt_web_view"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginTop="@dimen/spacing_14"
+                android:layout_marginBottom="@dimen/spacing_10"
+                android:paddingHorizontal="@dimen/spacing_11">
+
+                <WebView
+                    android:id="@+id/web_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <View
+                    android:id="@+id/shadow_web_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/spacing_50"
+                    android:layout_alignParentBottom="true"
+                    android:background="@drawable/bg_shadow_white" />
+
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/btn_more_web_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/button_overlay"
+                android:clickable="true"
+                android:focusable="true"
+                android:paddingHorizontal="@dimen/spacing_20"
+                android:paddingVertical="@dimen/spacing_8"
+                android:text="@string/button_view_more"
+                android:textColor="@color/primary"
+                android:textSize="@dimen/txt_medium"
+                android:textStyle="bold" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginHorizontal="@dimen/spacing_20"
+                android:layout_marginVertical="@dimen/spacing_24"
+                android:background="@color/bg_field" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-medium"
+                android:paddingHorizontal="@dimen/spacing_20"
+                android:text="@string/section_location"
+                android:textColor="@color/tx_dark"
+                android:textSize="@dimen/txt_mlarge" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/spacing_20"
+                android:paddingHorizontal="@dimen/spacing_20">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    app:cardBackgroundColor="@color/bg_field_dark"
+                    app:cardCornerRadius="@dimen/spacing_6"
+                    app:cardElevation="0dp"
+                    app:layout_constraintDimensionRatio="H,2:1"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <fragment
+                        android:id="@+id/map"
+                        android:name="com.google.android.gms.maps.SupportMapFragment"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+
+                </androidx.cardview.widget.CardView>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/spacing_24"
+                android:orientation="vertical">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginHorizontal="@dimen/spacing_20"
+                    android:background="@color/bg_field" />
+
+                <include layout="@layout/include_native_ad" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingHorizontal="@dimen/spacing_20">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="@string/section_reviews"
+                    android:textColor="@color/tx_dark"
+                    android:textSize="@dimen/txt_mlarge" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" />
+
+                <ImageView
+                    android:layout_width="@dimen/txt_medium"
+                    android:layout_height="@dimen/txt_medium"
+                    android:layout_marginHorizontal="@dimen/spacing_4"
+                    app:srcCompat="@drawable/ic_star"
+                    app:tint="@color/star" />
+
+                <TextView
+                    android:id="@+id/rating_avg_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="4.8 (5 reviews)"
+                    android:textColor="@color/ic_soft"
+                    android:textSize="@dimen/txt_medium" />
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recycler_view_reviews"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clipToPadding="false"
+                    android:paddingVertical="@dimen/spacing_4"
+                    android:scrollbars="none" />
+
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/btn_more_reviews"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/button_overlay"
+                android:clickable="true"
+                android:focusable="true"
+                android:paddingHorizontal="@dimen/spacing_20"
+                android:paddingVertical="@dimen/spacing_8"
+                android:text="@string/button_view_review"
+                android:textColor="@color/primary"
+                android:textSize="@dimen/txt_medium"
+                android:textStyle="bold" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginHorizontal="@dimen/spacing_20"
+                android:layout_marginVertical="@dimen/spacing_24"
+                android:background="@color/bg_field" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-medium"
+                android:paddingHorizontal="@dimen/spacing_20"
+                android:text="@string/section_related"
+                android:textColor="@color/tx_dark"
+                android:textSize="@dimen/txt_mlarge" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/spacing_14"
+                android:minHeight="@dimen/listing_width">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recycler_view_related"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clipToPadding="false"
+                    android:paddingVertical="@dimen/spacing_4"
+                    android:scrollbars="none" />
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="100dp" />
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <!--bottom sheet container-->
+    <include layout="@layout/sheet_more_info" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

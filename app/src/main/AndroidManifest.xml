@@ -17,6 +17,9 @@
         android:theme="@style/Theme.Lokalook"
         tools:targetApi="31">
         <activity
+            android:name=".ui.activities.DetailDesActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.activities.SurveyEmpatActivity"
             android:exported="false" />
         <activity

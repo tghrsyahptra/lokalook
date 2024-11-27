@@ -21,9 +21,9 @@ import com.lokalook.lokalook.R
 import com.lokalook.lokalook.data.remote.response.UserPreferencesManager
 import com.lokalook.lokalook.databinding.ActivityLoginBinding
 import com.lokalook.lokalook.ui.ViewModelFactory
-import com.lokalook.lokalook.ui.login.LoginViewModel
 import com.lokalook.lokalook.ui.activities.MainActivity
-//import com.lokalook.lokalook.ui.register.RegisterActivity
+import com.lokalook.lokalook.ui.register.RegisterActivity
+
 
 private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "User")
 
@@ -44,9 +44,9 @@ class LoginActivity : AppCompatActivity() {
         setupActions()
         playAnimations()
 
-//        binding.intRegister.setOnClickListener {
-//            navigateToRegister()
-//        }
+        binding.intRegister.setOnClickListener {
+            navigateToRegister()
+        }
     }
 
     private fun setupView() {
@@ -113,7 +113,7 @@ class LoginActivity : AppCompatActivity() {
 
     private fun playAnimations() {
         val elements = listOf(
-            binding.imLogo, binding.textLogin, binding.txEmail, binding.edLoginEmail,
+             binding.textLogin, binding.txEmail, binding.edLoginEmail,
             binding.txPassword, binding.edLoginPassword, binding.buttonLog, binding.intRegister
         )
 
@@ -183,10 +183,10 @@ class LoginActivity : AppCompatActivity() {
         finish()
     }
 
-//    private fun navigateToRegister() {
-//        val intent = Intent(this, RegisterActivity::class.java)
-//        startActivity(intent)
-//    }
+    private fun navigateToRegister() {
+        val intent = Intent(this, RegisterActivity::class.java)
+        startActivity(intent)
+    }
 
     override fun onDestroy() {
         super.onDestroy()

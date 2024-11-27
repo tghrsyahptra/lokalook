@@ -7,17 +7,50 @@
     tools:context=".ui.login.LoginActivity">
 
     <!-- Logo Image -->
-    <ImageView
-        android:id="@+id/imLogo"
-        android:alpha="0"
-        android:layout_width="150dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logo"
-        android:contentDescription="@string/logo" />
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="158dp"
+        android:background="@drawable/toolbar_background"
+        android:elevation="4dp"
+        tools:ignore="MissingConstraints">
+
+        <!-- RelativeLayout untuk memisahkan posisi teks -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <!-- TextView untuk teks di kiri -->
+
+            <!-- TextView untuk teks di tengah -->
+
+            <TextView
+                android:id="@+id/toolbar_text_left"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="20dp"
+                android:text="@string/app_name"
+                android:textColor="@android:color/white"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/toolbar_text_center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="160dp"
+                android:layout_marginBottom="23dp"
+                android:text="@string/action_sign_in"
+                android:textColor="@android:color/white"
+                android:textSize="25sp"
+                android:textStyle="bold" />
+
+        </RelativeLayout>
+
+    </androidx.appcompat.widget.Toolbar>
 
     <!-- Login Text -->
     <TextView
@@ -33,7 +66,8 @@
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/imLogo" />
+        app:layout_constraintTop_toBottomOf="@id/toolbar_text_center"
+        tools:ignore="NotSibling" />
 
     <!-- Email Label -->
     <TextView
@@ -41,10 +75,11 @@
         android:alpha="0"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="160dp"
+
         android:layout_marginStart="32dp"
         android:text="@string/email"
-        android:textColor="@color/blue_900"
+        android:textColor="@color/primary"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/textLogin" />
@@ -55,6 +90,7 @@
         android:alpha="0"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
         android:padding="16dp"
@@ -73,7 +109,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginStart="32dp"
         android:text="@string/password"
-        android:textColor="@color/blue_900"
+        android:textColor="@color/primary"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/ed_login_email" />
@@ -99,7 +135,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:backgroundTint="@color/blue_900"
+        android:backgroundTint="@color/primary"
         android:fontFamily="sans-serif"
         android:padding="16dp"
         android:text="@string/login"

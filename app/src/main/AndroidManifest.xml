@@ -17,6 +17,9 @@
         android:theme="@style/Theme.Lokalook"
         tools:targetApi="31">
 
+        <activity android:name=".ui.activities.MainActivity"
+            android:exported="false"/>
+
         <activity
             android:name=".ui.activities.SurveyEmpatActivity"
             android:exported="false" />
@@ -28,6 +31,13 @@
             android:exported="false" /> <!-- <activity -->
         <!-- android:name=".ui.activities.SurveySatuActivity" -->
         <!-- android:exported="false" /> -->
+
+        <activity
+            android:name=".ui.register.RegisterActivity"
+            android:exported="false"/>
+        <meta-data
+            android:name="android.app.lib_name"
+            android:value="" />
         <activity
             android:name=".ui.activities.OtpActivity"
             android:exported="false" /> <!-- <activity -->

@@ -1,0 +1,23 @@
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Status Checked -->
+    <item android:state_checked="true">
+        <shape>
+            <solid android:color="@color/primary" /> <!-- Warna saat tombol aktif -->
+            <corners android:radius="12dp" />
+            <stroke
+                android:color="@color/primary"
+            android:width="2dp" /> <!-- Lebar border -->
+        </shape>
+    </item>
+
+    <!-- Default (Unchecked) -->
+    <item>
+        <shape>
+            <solid android:color="@color/white" /> <!-- Warna saat tombol tidak aktif -->
+            <corners android:radius="12dp" />
+            <stroke
+                android:color="@color/primary"
+            android:width="2dp" /> <!-- Lebar border -->
+        </shape>
+    </item>
+</selector>

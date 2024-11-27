@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.activities.SurveyDuaActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:gravity="center">
+
+        <!-- Text di atas tombol -->
+
+        <!-- Group untuk tombol -->
+        <TextView
+            android:id="@+id/question_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:text="Destinasi wisata impianmu seperti apa?"
+            android:textAlignment="center"
+            android:textColor="@color/primary"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+
+        <RadioGroup
+            android:id="@+id/radioGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Tombol Curug -->
+            <RadioButton
+                android:id="@+id/radio_curug"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/radio_button_selector"
+                android:button="@null"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="Curug"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/dark_grey" /> <!-- Selector untuk warna teks -->
+
+            <!-- Tombol Pantai -->
+            <RadioButton
+                android:id="@+id/radio_pantai"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/radio_button_selector"
+                android:button="@null"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="Pantai"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/dark_grey" /> <!-- Selector untuk warna teks -->
+
+            <!-- Tombol Gunung -->
+            <RadioButton
+                android:id="@+id/radio_gunung"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/radio_button_selector"
+                android:button="@null"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="Gunung"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/dark_grey" />  <!-- Selector untuk teks --> <!-- Selector untuk warna teks -->
+
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/register"
+            android:layout_width="370dp"
+            android:layout_height="55dp"
+            android:layout_gravity="start"
+            android:layout_marginTop="200dp"
+            android:layout_marginBottom="64dp"
+            android:enabled="true"
+            android:text="Selanjutnya"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.516"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/password"
+            app:layout_constraintVertical_bias="0.518" />
+
+        <ProgressBar
+            android:id="@+id/loading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="64dp"
+            android:layout_marginBottom="64dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/password"
+            app:layout_constraintStart_toStartOf="@+id/password"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.3" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

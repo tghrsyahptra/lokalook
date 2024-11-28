@@ -18,7 +18,7 @@ class WisataResource extends Resource
     protected static ?string $model = Wisata::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
-    protected static ?string $navigationLabel = 'Data Wisata Lokalook';
+    protected static ?string $navigationLabel = 'Wisata Lokalook';
     protected static ?string $modelLabel = 'Data Wisata Lokalook';
     protected static ?string $pluralModelLabel = 'Data Wisata Lokalook';
     protected static ?string $slug = 'wisata';

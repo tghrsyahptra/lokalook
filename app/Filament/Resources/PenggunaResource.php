@@ -18,7 +18,7 @@ class PenggunaResource extends Resource
     protected static ?string $model = Pengguna::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
-    protected static ?string $navigationLabel = 'Data Pengguna Lokalook';
+    protected static ?string $navigationLabel = 'Pengguna Lokalook';
     protected static ?string $modelLabel = 'Data Pengguna Lokalook';
     protected static ?string $pluralModelLabel = 'Data Pengguna Lokalook';
     protected static ?string $slug = 'pengguna';

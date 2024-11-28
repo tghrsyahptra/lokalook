@@ -2,9 +2,9 @@ runtime: php82
 service: default
 
 env_variables:
-  GOOGLE_CLOUD_PROJECT_ID: "lokalook-442409"
+  GOOGLE_CLOUD_PROJECT_ID: "lokalook-id"
   GOOGLE_CLOUD_KEY_FILE: "service-account.json"
-  GOOGLE_CLOUD_STORAGE_BUCKET: "lokalook"
+  GOOGLE_CLOUD_STORAGE_BUCKET: "lokalook-web-api"
 
 handlers:
   - url: /static

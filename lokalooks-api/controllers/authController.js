@@ -156,3 +156,7 @@ exports.generateToken = async (request, h) => {
         return h.response({ error: 'Internal Server Error', message: error.message }).code(500);
     }
 };
+
+exports.home = (request, h) => {
+    return h.response({ message: 'SEMUA AMAN' }).code(200);
+};

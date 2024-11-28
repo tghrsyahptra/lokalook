@@ -3,6 +3,11 @@ const authMiddleware = require('../middleware/authMiddleware');
 
 module.exports = [
     {
+        method: 'GET',
+        path: '/',
+        handler: authController.home
+    },
+    {
         method: 'POST',
         path: '/register',
         handler: authController.register,

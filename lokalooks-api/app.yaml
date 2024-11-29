@@ -1,0 +1,7 @@
+runtime: nodejs22
+service: default
+
+env_variables:
+  GOOGLE_CLOUD_PROJECT_ID: "lokalook-id"
+  GOOGLE_CLOUD_KEY_FILE: "service-account.json"
+  GOOGLE_CLOUD_STORAGE_BUCKET: "lokalook"

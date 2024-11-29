@@ -5,10 +5,14 @@ env_variables:
   GOOGLE_CLOUD_PROJECT_ID: "lokalook-id"
   GOOGLE_CLOUD_KEY_FILE: "service-account.json"
   GOOGLE_CLOUD_STORAGE_BUCKET: "lokalook-web-api"
+  APP_KEY: base64:NBOvO9utE/479mxAII79plmL1F+yEYfTz+Z1RJnTbEk=
+  APP_STORAGE: /tmp
+  VIEW_COMPILED_PATH: /tmp
+  SESSION_DRIVER: cookie
 
 handlers:
   - url: /static
     static_dir: public
 
   - url: /.*
-    script: auto
+    script: public/index.php

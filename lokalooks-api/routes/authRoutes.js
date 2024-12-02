@@ -10,18 +10,12 @@ module.exports = [
     {
         method: 'POST',
         path: '/register',
-        handler: authController.register,
-        options: {
-            pre: [authMiddleware]
-        }
+        handler: authController.register
     },
     {
         method: 'POST',
         path: '/login',
-        handler: authController.login,
-        options: {
-            pre: [authMiddleware]
-        }
+        handler: authController.login
     },
     {
         method: 'POST',
@@ -43,5 +37,13 @@ module.exports = [
         method: 'POST',
         path: '/generate-token',
         handler: authController.generateToken
+    },
+    {
+        method: 'POST',
+        path: '/logout',
+        handler: authController.logout,
+        options: {
+            pre: [authMiddleware]
+        }
     }
 ];

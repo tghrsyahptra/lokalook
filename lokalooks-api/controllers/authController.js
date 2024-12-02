@@ -20,7 +20,7 @@ exports.register = async (request, h) => {
             image_pp
         });
 
-        return h.response({ id }).code(201);
+        return h.response({ message: 'Register successful' }).code(200);
     } catch (error) {
         console.error(error);
         return h.response({ error: 'Internal Server Error', message: error.message }).code(500);
@@ -28,21 +28,30 @@ exports.register = async (request, h) => {
 };
 
 exports.login = async (request, h) => {
-    const { email, password } = request.payload;
+    try {
+        const { email, password } = request.payload;
 
-    const user = await Pengguna.findByEmail(email);
+        const user = await Pengguna.findByEmail(email);
 
-    if (!user) {
-        return h.response({ error: 'User not found' }).code(404);
+        if (!user) {
+            return h.response({ error: 'User not found' }).code(404);
+        }
+
+        const isValid = await bcrypt.compare(password, user.password);
+
+        if (!isValid) {
+            return h.response({ error: 'Invalid password' }).code(401);
+        }
+
+        // Buat token JWT
+        const payload = { id: user.id, email: user.email };
+        const token = jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: '50m' });
+
+        return h.response({ message: 'Login successful', token }).code(200);
+    } catch (error) {
+        console.error('Login Error:', error);
+        return h.response({ error: 'Internal Server Error', message: error.message }).code(500);
     }
-
-    const isValid = await bcrypt.compare(password, user.password);
-
-    if (!isValid) {
-        return h.response({ error: 'Invalid password' }).code(401);
-    }
-
-    return h.response({ message: 'Login successful' }).code(200);
 };
 
 exports.sendResetPasswordEmail = async (request, h) => {
@@ -159,4 +168,17 @@ exports.generateToken = async (request, h) => {
 
 exports.home = (request, h) => {
     return h.response({ message: 'SEMUA AMAN' }).code(200);
+};
+
+exports.logout = async (request, h) => {
+    try {
+        // Implementasi logout, misalnya menghapus token dari client-side
+        // atau menambahkan token ke blacklist (opsional)
+
+        // Contoh implementasi sederhana tanpa blacklist
+        return h.response({ message: 'Logout successful' }).code(200);
+    } catch (error) {
+        console.error('Logout Error:', error);
+        return h.response({ error: 'Internal Server Error', message: error.message }).code(500);
+    }
 };

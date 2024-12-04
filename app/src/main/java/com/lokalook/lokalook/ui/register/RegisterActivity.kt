@@ -19,17 +19,16 @@ import com.lokalook.lokalook.data.remote.response.userDataStore
 import com.lokalook.lokalook.databinding.ActivityRegisterBinding
 import com.lokalook.lokalook.ui.ViewModelFactory
 import com.lokalook.lokalook.ui.login.LoginActivity
-import com.lokalook.lokalook.ui.register.RegisterViewModel
 
 class RegisterActivity : AppCompatActivity() {
     private var _binding: ActivityRegisterBinding? = null
-    private val binding get() = _binding
+    private val binding get() = _binding!!
     private lateinit var registerViewModel: RegisterViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         _binding = ActivityRegisterBinding.inflate(layoutInflater)
-        setContentView(binding?.root)
+        setContentView(binding.root)
 
         initializeView()
         initializeViewModel()
@@ -38,30 +37,47 @@ class RegisterActivity : AppCompatActivity() {
     }
 
     private fun setupActions() {
-        binding?.buttonReg?.setOnClickListener {
-            val name = binding?.edRegisterName?.text.toString()
-            val email = binding?.edRegisterEmail?.text.toString()
-            val password = binding?.edRegisterPassword?.text.toString()
+        binding.buttonReg.setOnClickListener {
+            val name = binding.edRegisterName.text.toString()
+            val email = binding.edRegisterEmail.text.toString()
+            val password = binding.edRegisterPassword.text.toString()
+            val username = binding.edRegisterUsername.text.toString()
+            val address = binding.edRegisterAddress.text.toString()
 
-            if (validateInput(name, email, password)) {
-                registerViewModel.register(name, email, password)
+            // Nilai Default
+            val personalizationResult = "personalized result"
+            val profileImage = "https://example.com/path/to/image.jpg"
+
+            if (validateInput(name, email, password, username, address)) {
+                registerViewModel.generateTokenAndRegister(
+                    clientId = "YOUR_CLIENT_ID",
+                    clientSecret = "YOUR_CLIENT_SECRET",
+                    name = name,
+                    email = email,
+                    password = password,
+                    username = username,
+                    address = address,
+                    personalizationResult = personalizationResult, // Default Value
+                    profileImage = profileImage // Default Value
+                )
             }
         }
 
-        binding?.intLogin?.setOnClickListener {
+        binding.intLogin.setOnClickListener {
             navigateToLogin()
         }
     }
 
     private fun initializeViewModel() {
-        registerViewModel = ViewModelProvider(this, ViewModelFactory(UserPreferencesManager.getInstance(userDataStore))).get(
-            RegisterViewModel::class.java)
+        val userPreferencesManager = UserPreferencesManager.getInstance(userDataStore)
+        registerViewModel = ViewModelProvider(
+            this,
+            ViewModelFactory(userPreferencesManager)
+        )[RegisterViewModel::class.java]
 
-        registerViewModel.run {
-            message.observe(this@RegisterActivity) { handleSuccess(it) }
-            error.observe(this@RegisterActivity) { handleError(it) }
-            isLoading.observe(this@RegisterActivity) { toggleLoading(it) }
-        }
+        registerViewModel.message.observe(this) { handleSuccess(it) }
+        registerViewModel.error.observe(this) { handleError(it) }
+        registerViewModel.isLoading.observe(this) { toggleLoading(it) }
     }
 
     private fun initializeView() {
@@ -70,25 +86,32 @@ class RegisterActivity : AppCompatActivity() {
     }
 
     private fun hideStatusBar() {
-        @Suppress("DEPRECATION")
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
             window.insetsController?.hide(WindowInsets.Type.statusBars())
         } else {
-            window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN)
+            @Suppress("DEPRECATION")
+            window.setFlags(
+                WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN
+            )
         }
     }
 
     private fun startAnimation() {
         val viewsToAnimate = listOf(
-            binding?.textRegister,
-            binding?.txName,
-            binding?.edRegisterName,
-            binding?.txEmail,
-            binding?.edRegisterEmail,
-            binding?.txPassword,
-            binding?.edRegisterPassword,
-            binding?.buttonReg,
-            binding?.intLogin
+            binding.textRegister,
+            binding.txName,
+            binding.edRegisterName,
+            binding.txEmail,
+            binding.edRegisterEmail,
+            binding.txPassword,
+            binding.edRegisterPassword,
+            binding.txUsername,
+            binding.edRegisterUsername,
+            binding.txAddress,
+            binding.edRegisterAddress,
+            binding.buttonReg,
+            binding.intLogin
         )
 
         val animations = viewsToAnimate.map {
@@ -101,22 +124,36 @@ class RegisterActivity : AppCompatActivity() {
         }.start()
     }
 
-    private fun validateInput(name: String, email: String, password: String): Boolean {
+    private fun validateInput(
+        name: String,
+        email: String,
+        password: String,
+        username: String,
+        address: String
+    ): Boolean {
         return when {
             name.isEmpty() -> {
-                binding?.edRegisterName?.error = getString(R.string.name_empty)
+                binding.edRegisterName.error = getString(R.string.name_empty)
                 false
             }
             email.isEmpty() -> {
-                binding?.edRegisterEmail?.error = getString(R.string.email_empty)
+                binding.edRegisterEmail.error = getString(R.string.email_empty)
                 false
             }
             password.isEmpty() -> {
-                binding?.edRegisterPassword?.error = getString(R.string.password_empty)
+                binding.edRegisterPassword.error = getString(R.string.password_empty)
                 false
             }
             password.length < 8 -> {
-                binding?.edRegisterPassword?.error = getString(R.string.password_short)
+                binding.edRegisterPassword.error = getString(R.string.password_short)
+                false
+            }
+            username.isEmpty() -> {
+                binding.edRegisterUsername.error = getString(R.string.username_empty)
+                false
+            }
+            address.isEmpty() -> {
+                binding.edRegisterAddress.error = getString(R.string.address_empty)
                 false
             }
             else -> true
@@ -154,7 +191,7 @@ class RegisterActivity : AppCompatActivity() {
     }
 
     private fun toggleLoading(isLoading: Boolean) {
-        binding?.progressBar?.visibility = if (isLoading) View.VISIBLE else View.GONE
+        binding.progressBar.visibility = if (isLoading) View.VISIBLE else View.GONE
     }
 
     private fun navigateToLogin() {

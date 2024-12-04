@@ -1,16 +1,14 @@
 package com.lokalook.lokalook.data.remote.response
+
 import com.google.gson.annotations.SerializedName
 
-/**
- * Response model for user registration request.
- * @property isError Indicates whether the registration request was successful or not.
- * @property message Describes the result of the registration request.
- */
 data class RegisterResponse(
+    @SerializedName("status")
+    val status: String,
 
-    @field:SerializedName("error")
-    val isError: Boolean,
+    @SerializedName("message")
+    val message: String,
 
-    @field:SerializedName("message")
-    val message: String
+    @SerializedName("userId")
+    val userId: String? = null
 )

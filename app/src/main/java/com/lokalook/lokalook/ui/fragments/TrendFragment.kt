@@ -14,25 +14,25 @@ import com.lokalook.lokalook.utils.Result
 import com.lokalook.lokalook.ui.viewmodels.ViewModelFactory
 
 class TrendFragment : Fragment() {
-
-    private var _binding: FragmentTrendBinding? = null
-    private val binding get() = _binding!!
-
-    private lateinit var verticalAdapter: VerticalAdapter
-
-    // Instance ViewModel
-    private val viewModel by viewModels<MainViewModel> {
-        ViewModelFactory.getInstance(requireActivity())
-    }
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        // Menginflasi layout untuk fragment ini
-        _binding = FragmentTrendBinding.inflate(inflater, container, false)
-        return binding.root
-    }
+//
+//    private var _binding: FragmentTrendBinding? = null
+//    private val binding get() = _binding!!
+//
+//    private lateinit var verticalAdapter: VerticalAdapter
+//
+//    // Instance ViewModel
+//    private val viewModel by viewModels<MainViewModel> {
+//        ViewModelFactory.getInstance(requireActivity())
+//    }
+//
+//    override fun onCreateView(
+//        inflater: LayoutInflater, container: ViewGroup?,
+//        savedInstanceState: Bundle?
+//    ): View {
+//        // Menginflasi layout untuk fragment ini
+//        _binding = FragmentTrendBinding.inflate(inflater, container, false)
+//        return binding.root
+//    }
 
 //    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 //        super.onViewCreated(view, savedInstanceState)

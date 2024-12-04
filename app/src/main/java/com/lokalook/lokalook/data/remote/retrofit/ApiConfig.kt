@@ -1,29 +1,30 @@
 package com.lokalook.lokalook.data.remote.retrofit
 
 import com.lokalook.lokalook.BuildConfig
+import com.lokalook.lokalook.data.remote.response.UserPreferencesManager
+import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-/**
- * Singleton class for configuring Retrofit and ApiService.
- */
 object ApiConfig {
 
-    /**
-     * Returns an instance of [ApiService] ready for API communication.
-     */
-    fun getApiService(): ApiService {
-        val client = createOkHttpClient()
+    // API service with token authentication
+    fun getApiService(userPreferencesManager: UserPreferencesManager): ApiService {
+        val client = createOkHttpClient(userPreferencesManager)
         val retrofit = createRetrofit(client)
         return retrofit.create(ApiService::class.java)
     }
 
-    /**
-     * Creates and configures an instance of [OkHttpClient].
-     */
-    private fun createOkHttpClient(): OkHttpClient {
+    // Fallback API service without authentication (if needed)
+    fun getApiService(): ApiService {
+        val client = createOkHttpClientWithoutAuth()
+        val retrofit = createRetrofit(client)
+        return retrofit.create(ApiService::class.java)
+    }
+
+    private fun createOkHttpClient(userPreferencesManager: UserPreferencesManager): OkHttpClient {
         val loggingInterceptor = HttpLoggingInterceptor().apply {
             level = if (BuildConfig.DEBUG) {
                 HttpLoggingInterceptor.Level.BODY
@@ -31,30 +32,45 @@ object ApiConfig {
                 HttpLoggingInterceptor.Level.NONE
             }
         }
+
+        // Add token to requests via Interceptor
+        val authInterceptor = Interceptor { chain ->
+            val token = userPreferencesManager.getUserToken() // Retrieve the token
+            val request = if (token.isNotEmpty()) {
+                chain.request().newBuilder()
+                    .addHeader("Authorization", token)
+                    .build()
+            } else {
+                chain.request()
+            }
+            chain.proceed(request)
+        }
+
+        return OkHttpClient.Builder()
+            .addInterceptor(loggingInterceptor)
+            .addInterceptor(authInterceptor)
+            .build()
+    }
+
+    private fun createOkHttpClientWithoutAuth(): OkHttpClient {
+        val loggingInterceptor = HttpLoggingInterceptor().apply {
+            level = if (BuildConfig.DEBUG) {
+                HttpLoggingInterceptor.Level.BODY
+            } else {
+                HttpLoggingInterceptor.Level.NONE
+            }
+        }
+
         return OkHttpClient.Builder()
             .addInterceptor(loggingInterceptor)
             .build()
     }
 
-    /**
-     * Creates and configures an instance of [Retrofit].
-     */
     private fun createRetrofit(client: OkHttpClient): Retrofit {
         return Retrofit.Builder()
-            .baseUrl(getBaseUrl())
+            .baseUrl(BuildConfig.BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .client(client)
             .build()
-    }
-
-    /**
-     * Dynamically fetches the base URL based on the environment.
-     */
-    private fun getBaseUrl(): String {
-        return if (BuildConfig.BASE_URL.isNotBlank()) {
-            BuildConfig.BASE_URL
-        } else {
-            "https://event-api.dicoding.dev/" // Fallback default URL
-        }
     }
 }

@@ -95,6 +95,38 @@
         app:layout_constraintTop_toBottomOf="@+id/txName"
         tools:ignore="SpeakableTextPresentCheck" />
 
+
+
+    <!-- Username Input Label -->
+    <TextView
+        android:id="@+id/txUsername"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:alpha="0"
+        android:text="@string/username"
+        android:textColor="@color/blue_900"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ed_register_name" />
+
+    <!-- Username Input Field -->
+    <com.lokalook.lokalook.ui.custom.UsernameEdText
+        android:id="@+id/ed_register_username"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:alpha="0"
+        android:padding="16dp"
+        android:shadowColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txUsername"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+
     <!-- Email Input Label -->
     <TextView
         android:id="@+id/txEmail"
@@ -107,7 +139,7 @@
         android:textColor="@color/blue_900"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ed_register_name" />
+        app:layout_constraintTop_toBottomOf="@+id/ed_register_username" />
 
     <!-- Email Input Field -->
     <com.lokalook.lokalook.ui.custom.EmailEdText
@@ -124,6 +156,40 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txEmail" />
 
+
+
+    <!-- Address Input Label -->
+    <TextView
+        android:id="@+id/txAddress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:alpha="0"
+        android:text="@string/address"
+        android:textColor="@color/blue_900"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ed_register_email" />
+
+    <!-- Adress Input Field -->
+    <com.lokalook.lokalook.ui.custom.AddressEdText
+        android:id="@+id/ed_register_address"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:alpha="0"
+        android:padding="16dp"
+        android:shadowColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txAddress"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+
+
+
     <!-- Password Input Label -->
     <TextView
         android:id="@+id/txPassword"
@@ -136,7 +202,8 @@
         android:textColor="@color/blue_900"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ed_register_email" />
+        app:layout_constraintTop_toBottomOf="@+id/ed_register_address" />
+
 
     <!-- Password Input Field -->
     <com.lokalook.lokalook.ui.custom.PasswordEdText

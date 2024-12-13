@@ -2,58 +2,5 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="light_grey">#D5D5D5</color>
-    <color name="onfab">#38265C</color>
-    <color name="primary">#0BB179</color> <!-- Violet -->
-    <color name="primary_variant">#00BCD4</color> <!-- Dark Violet -->
-    <color name="secondary">#03DAC6</color> <!-- Teal -->
-    <color name="background_light">#FFFFFF</color> <!-- White Background -->
-    <color name="text_color">#000000</color> <!-- Black Text -->
-    <color name="splash_background">#03A9F4</color> <!-- Same as Primary for Splash -->
-    <color name="primary_dark">#121212</color>
-    <color name="primary_variant_dark">#3700B3</color>
-    <color name="on_primary_dark">#FFFFFF</color>
-    <color name="secondary_dark">#BB86FC</color>
-    <color name="on_secondary_dark">#FFFFFF</color>
-    <color name="text_color_dark">#FFFFFF</color>
-    <color name="splash_background_dark">#121212</color>
-    <!-- Warna untuk Dark Mode -->
-    <color name="background_dark">#121212</color>
-    <color name="grey">#424242</color>
-    <color name="dark_grey">#303030</color>
-    <color name="text_light">#FFFFFF</color> <!-- Tulisan putih -->
-    <color name="text_dark">#000000</color> <!-- Tulisan hitam -->
-    <!-- Warna untuk Tema Gelap -->
-    <color name="white_night">#121212</color> <!-- Warna latar belakang gelap -->
-    <color name="light_grey_night">#1F1F1F</color> <!-- Garis pemisah -->
-    <color name="onfab_night">#000000</color> <!-- Warna untuk ikon FAB -->
-    <color name="dark_grey_night">#FFFFFF</color> <!-- Warna teks terang -->
-
-    <color name="red">#D12828</color>
-    <color name="light_red">#EA8B8B</color>
-    <color name="blue">#159AC6</color>
-    <color name="light_blue">#A0E4FB</color>
-    <color name="green">#35D52A</color>
-    <color name="yellow">#FFEB3B</color>
-    <color name="sec_white">#F0F3F8</color>
-
-<!--    from login-->
-
-    <color name="purple_200">#FFBB86FC</color>
-    <color name="purple_500">#FF6200EE</color>
-    <color name="purple_700">#FF3700B3</color>
-    <color name="teal_200">#FF03DAC5</color>
-    <color name="teal_700">#FF018786</color>
-    <color name="gray_800">#707070</color>
-    <color name="blue_900">#0BB179</color>
-
-    <color name="colorPrimary">#0D47A1</color>
-
-    <!-- Other colors you might already have -->
-    <color name="colorAccent">#03DAC5</color>
-    <color name="colorPrimaryDark">#3700B3</color>
-
-    <color name="light_green">#A8F5C8</color>
-
-
+    <color name="ijo">#FF0BB179</color>
 </resources>

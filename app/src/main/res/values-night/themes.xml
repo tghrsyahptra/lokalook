@@ -1,20 +1,8 @@
 <resources>
-    <!-- Base application theme untuk Dark Mode -->
-    <style name="Base.Theme.Lokalook.Dark" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Background abu-abu gelap dan status bar hitam -->
-        <item name="android:windowBackground">@color/dark_grey</item>
-        <item name="android:statusBarColor">@color/black</item>
+    <!-- Base application theme. -->
+    <style name="Base.Theme.MyCamera" parent="Theme.Material3.DayNight.NoActionBar">
 
-        <!-- Warna Utama dan Sekunder -->
-        <item name="colorPrimary">@color/dark_grey</item>
-        <item name="colorOnPrimary">@color/white</item>
-        <item name="colorSecondary">@color/grey</item>
-        <item name="colorOnSecondary">@color/white</item>
-
-        <!-- Warna teks menjadi putih -->
-        <item name="android:textColor">@color/white</item>
+        <!-- Customize your dark theme here. -->
+        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
     </style>
-
-    <!-- Tema utama yang digunakan saat dark mode -->
-    <style name="Theme.Lokalook" parent="Base.Theme.Lokalook.Dark" />
 </resources>

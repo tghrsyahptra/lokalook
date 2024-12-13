@@ -1,109 +1,57 @@
 plugins {
-    alias(libs.plugins.android.application)
-    alias(libs.plugins.kotlin.android)
-    id("kotlin-parcelize")
-    id("com.google.devtools.ksp")
+    id("com.android.application")
+    id("kotlin-android")
 }
 
 android {
-    namespace = "com.lokalook.lokalook"
-    compileSdk = 35
+    namespace = "com.dicoding.picodiploma.mycamera"
+    compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.lokalook.lokalook"
-        minSdk = 24
-        targetSdk = 35
+        applicationId = "com.dicoding.picodiploma.mycamera"
+        minSdk = 21
+        targetSdk = 33
         versionCode = 1
         versionName = "1.0"
+
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        buildConfigField("String", "BASE_URL", "\"https://backend-dot-lokalook-id.et.r.appspot.com/\"")
     }
 
     buildTypes {
-        release {
+        named("release") {
             isMinifyEnabled = false
-            proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
-            )
+            setProguardFiles(listOf(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"))
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
     }
     kotlinOptions {
-        jvmTarget = "11"
+        jvmTarget = "1.8"
     }
     buildFeatures {
-        buildConfig = true // Aktifkan fitur BuildConfig
         viewBinding = true
     }
 }
 
 dependencies {
+    val cameraxVersion = "1.3.0"
 
-    implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.appcompat)
-    implementation(libs.material)
-    implementation(libs.androidx.activity)
-    implementation(libs.androidx.constraintlayout)
-    implementation(libs.androidx.annotation)
-    implementation(libs.play.services.maps)
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.junit)
-    androidTestImplementation(libs.androidx.espresso.core)
+    implementation("androidx.core:core-ktx:1.12.0")
+    implementation("androidx.appcompat:appcompat:1.6.1")
+    implementation("com.google.android.material:material:1.10.0")
+    implementation("androidx.constraintlayout:constraintlayout:2.2.0")
+    testImplementation("junit:junit:4.13.2")
+    androidTestImplementation("androidx.test.ext:junit:1.1.5")
+    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
 
-    // Navigation
-    implementation(libs.androidx.navigation.fragment.ktx) // Navigation Fragment KTX
-    implementation(libs.androidx.navigation.ui.ktx) // Navigation UI KTX
+    implementation("androidx.camera:camera-camera2:$cameraxVersion")
+    implementation("androidx.camera:camera-lifecycle:$cameraxVersion")
+    implementation("androidx.camera:camera-view:$cameraxVersion")
 
-    // Image loading
-    implementation(libs.glide) // Glide
-
-    // Networking
-    implementation(libs.retrofit)// Retrofit
-    implementation(libs.converter.gson) // Gson Converter
-    implementation(libs.logging.interceptor) // Logging Interceptor
-
-    // Activity KTX
-    implementation(libs.androidx.activity.ktx) // Activity KTX
-
-    // Browser
-    implementation(libs.androidx.browser) // Browser
-
-    // Animation
-    implementation(libs.lottie) // Lottie
-    implementation(libs.shimmer) // Shimmer
-
-    // Splash Screen
-    implementation(libs.androidx.core.splashscreen) // Splash Screen
-
-    // Room
-    implementation(libs.androidx.room.runtime) // Room Runtime
-    ksp(libs.androidx.room.compiler) // Room Compiler
-
-    // Coroutine support
-    implementation(libs.androidx.lifecycle.viewmodel.ktx) // ViewModel KTX
-    implementation(libs.androidx.lifecycle.livedata.ktx) // LiveData KTX
-    implementation(libs.androidx.room.ktx) // Room KTX
-
-    // Settings
-    implementation(libs.androidx.preference) // Preference
-
-    // DataStore Preferences
-    implementation(libs.androidx.datastore.preferences) // DataStore Preferences
-
-    // Coroutines
-    implementation(libs.kotlinx.coroutines.core) // Coroutines Core
-    implementation(libs.kotlinx.coroutines.android) // Coroutines Android
-
-    // Work Manager
-    implementation(libs.androidx.work.runtime.ktx) // WorkManager
-
-    //circle image
-    implementation (libs.circleimageview)
-
-    //ViewPager
-    implementation (libs.androidx.viewpager2)
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation("com.squareup.okhttp3:logging-interceptor:4.11.0")
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.2")
 }

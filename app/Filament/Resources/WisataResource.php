@@ -37,22 +37,21 @@ class WisataResource extends Resource
                 Forms\Components\TextInput::make('deskripsi')
                     ->required()
                     ->maxLength(255),
-                    Forms\Components\FileUpload::make('image')
+                Forms\Components\FileUpload::make('image')
                     ->image()
                     ->disk('public')
                     ->directory('foto_wisata')
                     ->openable()
                     ->image()
                     ->minSize(100)
-                    ->maxSize(1024)
-                    ->acceptedFileTypes(['image/png', 'image/jpg', 'image/jpeg']),
+                    ->maxSize(1024),
                 Forms\Components\TextInput::make('no_wa')
                     ->required()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('jam_operasional')
                     ->required()
                     ->maxLength(255),
-                    Forms\Components\Select::make('kategori')
+                Forms\Components\Select::make('kategori')
                     ->label('Kategori')
                     ->placeholder('Pilih Kategori')
                     ->options([

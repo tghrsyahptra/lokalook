@@ -34,23 +34,30 @@ exports.login = async (request, h) => {
         const user = await Pengguna.findByEmail(email);
 
         if (!user) {
-            return h.response({ error: 'User not found' }).code(404);
-        }
+            return h.response({ error: true, message: 'User not found' }).code(404);
+        } 
 
         const isValid = await bcrypt.compare(password, user.password);
 
         if (!isValid) {
-            return h.response({ error: 'Invalid password' }).code(401);
+            return h.response({ error: true, message: 'Invalid password' }).code(401);
         }
 
         // Buat token JWT
         const payload = { id: user.id, email: user.email };
         const token = jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: '50m' });
 
-        return h.response({ message: 'Login successful', token }).code(200);
+        const loginResult = {
+            userId: user.id,
+            name: user.name,
+            // Add other user data as needed
+            token: token
+        };
+
+        return h.response({ error: false, message: 'Login successful', loginResult }).code(200);
     } catch (error) {
         console.error('Login Error:', error);
-        return h.response({ error: 'Internal Server Error', message: error.message }).code(500);
+        return h.response({ error: true, message: 'Internal Server Error', details: error.message }).code(500);
     }
 };
 

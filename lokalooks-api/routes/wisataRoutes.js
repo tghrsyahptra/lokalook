@@ -26,5 +26,13 @@ module.exports = [
             pre: [authMiddleware]
         }
     },
-    // Add other routes for CRUD operations
+
+    {
+        method: 'POST',
+        path: '/budget',
+        handler: wisataController.recommendDestinations,
+        options: {
+            pre: [authMiddleware]
+        }
+    },
 ];

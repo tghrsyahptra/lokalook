@@ -17,6 +17,7 @@ exports.getAllMakanan = async (request, h) => {
         const [rows] = await db.execute("SELECT * FROM makanans");
         const filteredRows = rows.map((row) => {
             const { created_at, updated_at, ...rest } = row;
+            rest.image = `http://127.0.0.1:8000/storage/${rest.image}`;
             return rest;
         });
         return h.response(filteredRows).code(200);

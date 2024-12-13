@@ -8,7 +8,7 @@ import com.lokalook.lokalook.data.local.entity.WisataEntity
 
 @Database(entities = [WisataEntity::class], version = 1, exportSchema = false)
 abstract class WisataDatabase : RoomDatabase() {
-    abstract fun wisataDao(): WisataDao
+    abstract fun WisataDao(): WisataDao
 
     companion object {
         @Volatile

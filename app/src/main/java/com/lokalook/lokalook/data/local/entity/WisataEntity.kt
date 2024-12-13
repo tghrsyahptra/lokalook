@@ -8,14 +8,18 @@ import kotlinx.parcelize.Parcelize
 @Parcelize
 @Entity(tableName = "wisata")
 data class WisataEntity(
-    @PrimaryKey(autoGenerate = true) val id: Int? = null,
-    val nama_wisata: String?, // Maps to "nama_wisata" from API
-    val alamat: String?, // Maps to "alamat"
-    val deskripsi: String?, // Maps to "deskripsi"
-    val image: String?, // Maps to "image"
-    val no_wa: String?, // Maps to "no_wa"
-    val jam_operasional: String?, // Maps to "jam_operasional"
-    val kategori: String?, // Maps to "kategori"
-    val harga: String?, // Maps to "harga"
+    @PrimaryKey(autoGenerate = true)
+    val id: Int?, // Maps directly to "id" from API
+
+    val nama_wisata: String?, // Maps directly to "nama_wisata"
+    val alamat: String?, // Maps directly to "alamat"
+    val deskripsi: String?, // Maps directly to "deskripsi"
+    val image: String?, // Maps directly to "image"
+    val no_wa: String?, // Maps directly to "no_wa"
+    val jam_operasional: String?, // Maps directly to "jam_operasional"
+    val kategori: String?, // Maps directly to "kategori"
+    val harga: String?, // Maps directly to "harga"
+    val createdAt: String?, // Maps directly to "created_at"
+    val updatedAt: String?, // Maps directly to "updated_at"
     var isFavorite: Boolean? = false // Local flag for marking as favorite
 ) : Parcelable

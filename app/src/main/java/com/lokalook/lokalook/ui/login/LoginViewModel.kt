@@ -1,5 +1,6 @@
 package com.lokalook.lokalook.ui.login
 
+import android.util.Log
 import androidx.lifecycle.*
 import com.lokalook.lokalook.data.remote.response.LoginResponse
 import com.lokalook.lokalook.data.remote.response.LoginResult
@@ -26,9 +27,11 @@ class LoginViewModel(private val userPreference: UserPreferencesManager) : ViewM
         return userPreference.getUser().asLiveData()
     }
 
-    fun saveUser(userName: String, userId: String, userToken: String) {
+    fun saveUser(userId: String, token: String) {
+        // Simpan user ID dan token ke SharedPreferences atau Database
+        Log.d("LoginViewModel", "User saved: ID=$userId, Token=$token")
         viewModelScope.launch {
-            userPreference.saveUser(userName, userId, userToken)
+            userPreference.saveUser(userId, token)
         }
     }
 
@@ -68,11 +71,12 @@ class LoginViewModel(private val userPreference: UserPreferencesManager) : ViewM
                     response.body()?.let { loginResponse ->
                         loginResult.postValue(loginResponse)
                         message.postValue("Login successful!")
-                        saveUser(
-                            loginResponse.loginResult.name,
-                            loginResponse.loginResult.userId,
-                            token
-                        )
+                        loginResponse.loginResult?.let {
+                            saveUser(
+                                it.userId,
+                                loginResponse.loginResult.token
+                            )
+                        }
                     }
                 } else {
                     handleErrorResponse(response)
